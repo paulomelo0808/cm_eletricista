@@ -3,745 +3,876 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CM Eletricista — Cláudio Melo</title>
+    <title>Cláudio Melo Eletricista — Francisco Sá e região</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* ===== RESET & VARS ===== */
+        /* ============================================================
+           RESET & VARIÁVEIS
+           ============================================================ */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         :root {
-            --gold: #C9941A;
-            --gold-light: #E8B133;
-            --gold-dim: rgba(201,148,26,0.12);
-            --gold-border: rgba(201,148,26,0.25);
-            --dark:  #111111;
-            --dark2: #1A1A1A;
-            --dark3: #222222;
-            --dark4: #2C2C2C;
-            --text:  #F0EDE6;
-            --text2: #B8B4A8;
-            --muted: #6B6760;
-            --border: #2A2A2A;
-            --wpp:   #22C55E;
-            --wpp-d: #16A34A;
-            --radius: 12px;
-            --max: 1200px;
-            --nav-h: 60px;
+            --gold:        #C9941A;
+            --gold-l:      #E8B133;
+            --gold-dim:    rgba(201,148,26,0.11);
+            --gold-brd:    rgba(201,148,26,0.28);
+            --dark:        #0F0F0F;
+            --dark2:       #181818;
+            --dark3:       #202020;
+            --dark4:       #2A2A2A;
+            --text:        #F0EDE6;
+            --text2:       #B0AC9F;
+            --muted:       #666059;
+            --brd:         #282828;
+            --wpp:         #22C55E;
+            --wpp-d:       #16A34A;
+            --r:           12px;
+            --max:         1200px;
+            --nav:         62px;
+            --wpp-num:     5538998761475;
         }
         html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Raleway', sans-serif;
-            background: var(--dark);
-            color: var(--text);
-            min-height: 100vh;
-            line-height: 1.6;
-        }
+        body { font-family: 'Raleway', sans-serif; background: var(--dark); color: var(--text); min-height: 100vh; line-height: 1.6; }
         a { text-decoration: none; color: inherit; }
-
-        ::-webkit-scrollbar { width: 6px; }
+        button { font-family: inherit; }
+        ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: var(--dark2); }
         ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
 
-        /* ===== HEADER ===== */
+        /* ============================================================
+           HEADER
+           ============================================================ */
         header {
             background: var(--dark2);
-            border-bottom: 1px solid var(--border);
-            position: sticky; top: 0; z-index: 300;
+            border-bottom: 1px solid var(--brd);
+            position: sticky; top: 0; z-index: 400;
         }
-        .header-inner {
+        .hdr {
             max-width: var(--max); margin: 0 auto;
             display: flex; align-items: center; justify-content: space-between;
-            padding: 0 20px; height: var(--nav-h); gap: 12px;
+            padding: 0 20px; height: var(--nav); gap: 12px;
         }
-        .logo-wrap { display: flex; align-items: center; gap: 11px; flex-shrink: 0; }
+        /* Logo */
+        .logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
         .logo-box {
-            width: 40px; height: 40px;
-            background: var(--dark4); border: 1.5px solid var(--gold); border-radius: 8px;
+            width: 38px; height: 38px; flex-shrink: 0;
+            background: var(--dark4); border: 1.5px solid var(--gold); border-radius: 7px;
             display: flex; align-items: center; justify-content: center;
-            font-family: 'Playfair Display', serif;
-            color: var(--gold); font-size: 15px; font-weight: 700; letter-spacing: -1px;
+            font-family: 'Playfair Display', serif; color: var(--gold); font-size: 14px; font-weight: 700; letter-spacing: -1px;
         }
-        .logo-info h1 { font-family: 'Playfair Display', serif; font-size: 14px; letter-spacing: 0.5px; }
-        .logo-info p  { font-size: 9px; color: var(--gold); letter-spacing: 2.5px; text-transform: uppercase; font-weight: 700; }
-        .header-center { display: flex; gap: 2px; }
-        .header-center button {
+        .logo-txt h1 { font-family: 'Playfair Display', serif; font-size: 13.5px; letter-spacing: 0.4px; line-height: 1.2; }
+        .logo-txt p  { font-size: 8.5px; color: var(--gold); letter-spacing: 2.8px; text-transform: uppercase; font-weight: 700; }
+        /* Desktop nav */
+        .dnav { display: flex; gap: 0; }
+        .dnav button {
             background: none; border: none; color: var(--text2);
-            font-family: 'Raleway', sans-serif; font-size: 11px; font-weight: 700;
-            letter-spacing: 0.8px; text-transform: uppercase;
-            padding: 8px 12px; cursor: pointer; border-radius: 6px; transition: all 0.18s;
+            font-size: 10.5px; font-weight: 700; letter-spacing: 0.9px; text-transform: uppercase;
+            padding: 8px 11px; border-radius: 6px; cursor: pointer; transition: all .16s; white-space: nowrap;
         }
-        .header-center button:hover { color: var(--text); background: var(--dark4); }
-        .header-center button.active { color: var(--gold); }
-        .header-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-        .header-phone { font-size: 12px; color: var(--text2); font-weight: 600; }
-
-        /* Botões */
-        .btn-wpp {
-            display: inline-flex; align-items: center; gap: 7px;
-            background: var(--wpp); color: #fff; border: none; border-radius: 22px;
-            padding: 9px 18px; font-family: 'Raleway', sans-serif; font-size: 13px; font-weight: 700;
-            cursor: pointer; text-decoration: none; transition: background 0.18s, transform 0.15s; white-space: nowrap;
-        }
-        .btn-wpp:hover { background: var(--wpp-d); transform: translateY(-1px); }
-        .btn-wpp.outline { background: transparent; border: 1.5px solid var(--wpp); color: var(--wpp); }
-        .btn-wpp.outline:hover { background: rgba(34,197,94,0.08); transform: translateY(-1px); }
-        .btn-wpp.gold-btn { background: var(--gold); }
-        .btn-wpp.gold-btn:hover { background: var(--gold-light); }
-        .btn-wpp.full { width: 100%; justify-content: center; padding: 14px 18px; font-size: 14px; }
-
+        .dnav button:hover  { color: var(--text); background: var(--dark4); }
+        .dnav button.on     { color: var(--gold); }
+        /* Header right */
+        .hdr-r { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+        .hdr-phone { font-size: 12px; color: var(--text2); font-weight: 600; white-space: nowrap; }
         /* Hamburger */
-        .hamburger {
-            display: none; background: none; border: none;
-            flex-direction: column; gap: 5px; cursor: pointer; padding: 4px;
-        }
-        .hamburger span {
-            display: block; width: 22px; height: 2px;
-            background: var(--text2); border-radius: 2px; transition: all 0.2s;
-        }
-
-        /* Mobile nav dropdown */
-        .mobile-nav {
-            display: none; background: var(--dark2); border-bottom: 1px solid var(--border);
-        }
-        .mobile-nav.open { display: block; }
-        .mobile-nav button {
+        .hmb { display: none; background: none; border: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+        .hmb span { display: block; width: 21px; height: 2px; background: var(--text2); border-radius: 2px; transition: .2s; }
+        /* Mobile nav */
+        .mnav { display: none; background: var(--dark2); border-bottom: 1px solid var(--brd); }
+        .mnav.open { display: block; }
+        .mnav button {
             display: block; width: 100%; background: none;
-            border: none; border-bottom: 1px solid var(--border);
-            color: var(--text2); font-family: 'Raleway', sans-serif;
-            font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-            padding: 15px 20px; text-align: left; cursor: pointer; transition: all 0.15s;
+            border: none; border-bottom: 1px solid var(--brd);
+            color: var(--text2); font-size: 11.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+            padding: 14px 20px; text-align: left; cursor: pointer; transition: .14s;
         }
-        .mobile-nav button:last-child { border-bottom: none; }
-        .mobile-nav button.active { color: var(--gold); }
-        .mobile-nav button:hover { background: var(--dark4); }
+        .mnav button:last-child { border-bottom: none; }
+        .mnav button.on  { color: var(--gold); }
+        .mnav button:hover { background: var(--dark4); }
 
-        /* ===== HERO ===== */
-        .hero {
-            background: var(--dark2); border-bottom: 1px solid var(--border);
-            position: relative; overflow: hidden;
+        /* ============================================================
+           BOTÕES WPP (sistema único)
+           ============================================================ */
+        .wbtn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+            background: var(--wpp); color: #fff; border: none; border-radius: 24px;
+            padding: 10px 20px; font-size: 13px; font-weight: 700;
+            cursor: pointer; text-decoration: none; transition: background .16s, transform .13s; white-space: nowrap;
         }
-        .hero-bg-text {
-            font-family: 'Playfair Display', serif; font-size: clamp(80px, 18vw, 220px); font-weight: 900;
-            color: rgba(201,148,26,0.04); position: absolute; right: -2%; bottom: -5%;
-            pointer-events: none; line-height: 1; user-select: none;
+        .wbtn:hover   { background: var(--wpp-d); transform: translateY(-1px); }
+        .wbtn.out     { background: transparent; border: 1.5px solid var(--wpp); color: var(--wpp); }
+        .wbtn.out:hover { background: rgba(34,197,94,.08); transform: translateY(-1px); }
+        .wbtn.full    { width: 100%; padding: 14px 20px; font-size: 14px; border-radius: var(--r); }
+        .wbtn.sm      { padding: 8px 16px; font-size: 12px; }
+        /* WhatsApp SVG (reusável) */
+        .wi { flex-shrink: 0; }
+
+        /* ============================================================
+           HERO
+           ============================================================ */
+        .hero { background: var(--dark2); border-bottom: 1px solid var(--brd); position: relative; overflow: hidden; }
+        .hero-bg {
+            font-family: 'Playfair Display', serif; font-size: clamp(90px, 20vw, 240px); font-weight: 900;
+            color: rgba(201,148,26,0.04); position: absolute; right: -1%; bottom: -8%;
+            pointer-events: none; line-height: 1; user-select: none; letter-spacing: -4px;
         }
-        .hero-inner {
-            max-width: var(--max); margin: 0 auto; padding: 52px 20px 48px;
-            display: grid; grid-template-columns: 1fr; gap: 36px; position: relative; z-index: 1;
+        .hero-in {
+            max-width: var(--max); margin: 0 auto; padding: 54px 20px 48px;
+            display: grid; grid-template-columns: 1fr; gap: 32px; position: relative; z-index: 1;
         }
-        .hero-eyebrow {
-            font-size: 10px; color: var(--gold); letter-spacing: 3.5px;
-            text-transform: uppercase; font-weight: 800; margin-bottom: 14px;
-        }
+        .hero-eyebrow { font-size: 10px; color: var(--gold); letter-spacing: 3.5px; text-transform: uppercase; font-weight: 800; margin-bottom: 13px; }
         .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(28px, 5.5vw, 52px); line-height: 1.15; margin-bottom: 16px;
+            font-family: 'Playfair Display', serif; font-size: clamp(28px, 5.5vw, 54px); line-height: 1.12; margin-bottom: 14px;
         }
         .hero-title em { color: var(--gold); font-style: normal; }
-        .hero-desc {
-            font-size: 14px; color: var(--text2); font-weight: 300;
-            line-height: 1.8; max-width: 480px; margin-bottom: 24px;
-        }
-        .hero-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+        .hero-sub { font-size: 14px; color: var(--text2); font-weight: 400; margin-bottom: 22px; line-height: 1.8; }
+        .hero-sub span { display: block; }
+        .hero-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
         .pill {
             display: inline-flex; align-items: center; gap: 5px;
-            background: var(--gold-dim); border: 1px solid var(--gold-border);
-            color: var(--gold-light); font-size: 11px; font-weight: 700;
-            padding: 5px 13px; border-radius: 20px;
+            background: var(--gold-dim); border: 1px solid var(--gold-brd);
+            color: var(--gold-l); font-size: 11px; font-weight: 700;
+            padding: 5px 13px; border-radius: 20px; letter-spacing: .3px;
         }
         .hero-ctas { display: flex; flex-wrap: wrap; gap: 10px; }
-        .hero-stats-box {
-            background: var(--dark3); border: 1px solid var(--border); border-radius: var(--radius);
-            padding: 24px 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; align-self: center;
+        .hero-stats {
+            background: var(--dark3); border: 1px solid var(--brd); border-radius: var(--r);
+            padding: 22px 18px; display: grid; grid-template-columns: repeat(3,1fr); gap: 4px; align-self: center;
         }
-        .stat { text-align: center; padding: 8px 4px; }
+        .stat { text-align: center; padding: 8px 6px; }
         .stat-n { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--gold); font-weight: 700; line-height: 1; }
-        .stat-l { font-size: 10px; color: var(--muted); margin-top: 5px; font-weight: 600; letter-spacing: 0.5px; }
+        .stat-l { font-size: 10px; color: var(--muted); margin-top: 5px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; }
 
-        /* ===== SECTIONS ===== */
-        .section { display: none; }
-        .section.active { display: block; }
-        .page { max-width: var(--max); margin: 0 auto; padding: 40px 20px 80px; }
-        .sec-header { margin-bottom: 32px; }
-        .sec-title { font-family: 'Playfair Display', serif; font-size: clamp(22px, 4vw, 34px); margin-bottom: 6px; }
+        /* ============================================================
+           SEÇÕES
+           ============================================================ */
+        .sec { display: none; }
+        .sec.on { display: block; }
+        .page { max-width: var(--max); margin: 0 auto; padding: 40px 20px 90px; }
+        .sec-hdr { margin-bottom: 28px; }
+        .sec-title { font-family: 'Playfair Display', serif; font-size: clamp(21px, 4vw, 32px); margin-bottom: 5px; }
         .sec-title em { color: var(--gold); font-style: normal; }
         .sec-sub { font-size: 13px; color: var(--text2); font-weight: 300; }
+        hr.div { border: none; border-top: 1px solid var(--brd); margin: 28px 0; }
 
-        /* ===== CHIPS ===== */
-        .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+        /* ============================================================
+           CHIPS DE FILTRO
+           ============================================================ */
+        .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
         .chip {
-            padding: 8px 18px; background: var(--dark3); border: 1px solid var(--border);
-            border-radius: 22px; color: var(--text2); font-family: 'Raleway', sans-serif;
-            font-size: 12px; font-weight: 700; letter-spacing: 0.5px; cursor: pointer; transition: all 0.18s;
+            padding: 8px 18px; background: var(--dark3); border: 1px solid var(--brd);
+            border-radius: 22px; color: var(--text2); font-size: 11.5px; font-weight: 700;
+            letter-spacing: .5px; cursor: pointer; transition: all .16s;
         }
-        .chip.active { background: var(--gold-dim); border-color: var(--gold); color: var(--gold-light); }
-        .chip:hover:not(.active) { border-color: #444; color: var(--text); }
+        .chip.on { background: var(--gold-dim); border-color: var(--gold); color: var(--gold-l); }
+        .chip:hover:not(.on) { border-color: #404040; color: var(--text); }
 
-        /* ===== SERVIÇO CARDS ===== */
-        .cards-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 28px; }
+        /* ============================================================
+           CARDS DE SERVIÇO
+           ============================================================ */
+        .svc-grid { display: grid; grid-template-columns: 1fr; gap: 11px; margin-bottom: 26px; }
         .svc-card {
-            background: var(--dark2); border: 1px solid var(--border); border-radius: var(--radius);
-            padding: 20px; display: flex; align-items: flex-start; gap: 16px; transition: border-color 0.18s;
+            background: var(--dark2); border: 1px solid var(--brd); border-radius: var(--r);
+            padding: 18px 18px; display: flex; align-items: flex-start; gap: 14px;
+            transition: border-color .16s;
         }
-        .svc-card:hover { border-color: var(--gold-border); }
-        .svc-card.hidden { display: none; }
-        .svc-icon {
-            width: 46px; height: 46px; flex-shrink: 0;
-            background: var(--gold-dim); border: 1px solid var(--gold-border); border-radius: 10px;
-            display: flex; align-items: center; justify-content: center; font-size: 20px;
+        .svc-card:hover { border-color: var(--gold-brd); }
+        .svc-card.hide  { display: none !important; }
+        .svc-ico {
+            width: 44px; height: 44px; flex-shrink: 0;
+            background: var(--gold-dim); border: 1px solid var(--gold-brd); border-radius: 9px;
+            display: flex; align-items: center; justify-content: center; font-size: 19px;
         }
         .svc-body { flex: 1; min-width: 0; }
-        .svc-name { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
-        .svc-desc { font-size: 12px; color: var(--text2); font-weight: 300; line-height: 1.6; margin-bottom: 8px; }
+        .svc-name { font-size: 14.5px; font-weight: 700; margin-bottom: 4px; }
+        .svc-desc { font-size: 12px; color: var(--text2); font-weight: 400; line-height: 1.65; margin-bottom: 8px; }
         .tags { display: flex; flex-wrap: wrap; gap: 5px; }
         .tag {
             background: var(--gold-dim); color: var(--gold);
-            font-size: 10px; font-weight: 700; letter-spacing: 0.5px; padding: 3px 9px; border-radius: 4px;
+            font-size: 9.5px; font-weight: 700; letter-spacing: .6px; padding: 3px 9px; border-radius: 4px;
+            text-transform: uppercase;
         }
+        .svc-act { flex-shrink: 0; align-self: center; }
 
-        /* ===== PRODUTO CARDS ===== */
-        .prod-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 20px; }
+        /* ============================================================
+           PRODUTOS — SELEÇÃO TIPO CARRINHO
+           ============================================================ */
+        .prod-hint {
+            background: var(--dark3); border: 1px solid var(--brd); border-radius: var(--r);
+            padding: 13px 16px; margin-bottom: 18px;
+            font-size: 12px; color: var(--text2); display: flex; align-items: center; gap: 8px;
+        }
+        .prod-hint span { color: var(--gold); font-size: 16px; }
+        .prod-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-bottom: 18px; }
         .prod-card {
-            background: var(--dark2); border: 1.5px solid var(--border); border-radius: var(--radius);
-            padding: 16px 18px; display: flex; align-items: center; gap: 12px;
-            cursor: pointer; transition: all 0.18s; user-select: none;
+            background: var(--dark2); border: 1.5px solid var(--brd); border-radius: var(--r);
+            padding: 15px 16px; display: flex; align-items: center; gap: 12px;
+            cursor: pointer; transition: all .15s; user-select: none;
         }
-        .prod-card:hover { border-color: #3a3a3a; }
-        .prod-card.selected { border-color: var(--wpp); background: rgba(34,197,94,0.05); }
-        .prod-check {
-            width: 22px; height: 22px; flex-shrink: 0; border: 2px solid var(--border);
-            border-radius: 6px; display: flex; align-items: center; justify-content: center;
-            font-size: 12px; transition: all 0.15s; color: transparent;
+        .prod-card:hover   { border-color: #3a3a3a; }
+        .prod-card.sel     { border-color: var(--wpp); background: rgba(34,197,94,.05); }
+        .prod-chk {
+            width: 22px; height: 22px; flex-shrink: 0;
+            border: 2px solid var(--brd); border-radius: 6px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 12px; transition: all .14s; color: transparent;
         }
-        .prod-card.selected .prod-check { background: var(--wpp); border-color: var(--wpp); color: #fff; }
-        .prod-icon {
-            width: 40px; height: 40px; flex-shrink: 0;
-            background: var(--gold-dim); border: 1px solid var(--gold-border); border-radius: 8px;
-            display: flex; align-items: center; justify-content: center; font-size: 17px;
+        .prod-card.sel .prod-chk { background: var(--wpp); border-color: var(--wpp); color: #fff; }
+        .prod-ico {
+            width: 38px; height: 38px; flex-shrink: 0;
+            background: var(--gold-dim); border: 1px solid var(--gold-brd); border-radius: 8px;
+            display: flex; align-items: center; justify-content: center; font-size: 16px;
         }
         .prod-info { flex: 1; min-width: 0; }
-        .prod-name { font-size: 13px; font-weight: 700; margin-bottom: 2px; }
+        .prod-name { font-size: 13.5px; font-weight: 700; margin-bottom: 2px; }
         .prod-desc { font-size: 11px; color: var(--text2); font-weight: 300; }
-        .prod-price { font-size: 12px; color: var(--gold); font-weight: 700; text-align: right; white-space: nowrap; flex-shrink: 0; }
-        .prod-price small { display: block; color: var(--muted); font-weight: 400; font-size: 10px; }
-
-        /* Cart bar */
-        .cart-bar {
-            background: var(--dark3); border: 1px solid var(--gold-border); border-radius: var(--radius);
-            padding: 16px 20px; margin-bottom: 16px; display: none;
+        /* Carrinho */
+        .cart {
+            background: var(--dark3); border: 1.5px solid var(--gold-brd); border-radius: var(--r);
+            padding: 16px 18px; margin-bottom: 14px;
+            display: none; animation: fadeIn .2s ease;
         }
-        .cart-bar.visible { display: block; }
-        .cart-title { font-size: 11px; color: var(--gold); font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; }
-        .cart-item { font-size: 13px; color: var(--text2); padding: 3px 0; display: flex; align-items: center; gap: 8px; }
-        .cart-item::before { content: '⚡'; font-size: 10px; color: var(--gold); }
-
-        /* ===== FORM ===== */
-        .form-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-bottom: 24px; }
-        .form-group { display: flex; flex-direction: column; gap: 6px; }
-        .form-label { font-size: 11px; font-weight: 700; color: var(--text2); letter-spacing: 0.5px; text-transform: uppercase; }
-        .form-input, .form-select, .form-textarea {
-            background: var(--dark3); border: 1px solid var(--border); border-radius: 8px;
-            padding: 12px 14px; color: var(--text); font-family: 'Raleway', sans-serif; font-size: 14px;
-            outline: none; transition: border-color 0.18s; width: 100%;
+        .cart.show { display: block; }
+        @keyframes fadeIn { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:none; } }
+        .cart-ttl { font-size: 10px; color: var(--gold); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+        .cart-list { margin-bottom: 14px; }
+        .cart-item {
+            font-size: 13px; color: var(--text2); padding: 4px 0;
+            display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--brd);
         }
-        .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--gold); }
-        .form-input::placeholder, .form-textarea::placeholder { color: var(--muted); }
-        .form-select {
+        .cart-item:last-child { border-bottom: none; }
+        .cart-item::before { content: '⚡'; font-size: 10px; color: var(--gold); flex-shrink: 0; }
+        .cart-empty { font-size: 12px; color: var(--muted); font-style: italic; }
+
+        /* ============================================================
+           FORMULÁRIO DE ORÇAMENTO
+           ============================================================ */
+        .form-wrap {
+            background: var(--dark2); border: 1px solid var(--brd); border-radius: var(--r);
+            padding: 24px; margin-bottom: 0;
+        }
+        .form-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-bottom: 20px; }
+        .fg { display: flex; flex-direction: column; gap: 6px; }
+        .fg.col2 { grid-column: 1 / -1; }
+        .flbl { font-size: 10.5px; font-weight: 800; color: var(--text2); letter-spacing: .7px; text-transform: uppercase; }
+        .finp, .fsel, .ftxt {
+            background: var(--dark3); border: 1px solid var(--brd); border-radius: 8px;
+            padding: 11px 13px; color: var(--text); font-family: 'Raleway', sans-serif; font-size: 14px;
+            outline: none; transition: border-color .16s; width: 100%;
+        }
+        .finp:focus, .fsel:focus, .ftxt:focus { border-color: var(--gold); }
+        .finp::placeholder, .ftxt::placeholder { color: var(--muted); }
+        .fsel {
             appearance: none; cursor: pointer;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-            background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7' viewBox='0 0 11 7'%3E%3Cpath d='M1 1l4.5 4.5L10 1' stroke='%23777' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 13px center; padding-right: 34px;
         }
-        .form-select option { background: var(--dark3); }
-        .form-textarea { resize: vertical; min-height: 90px; line-height: 1.5; }
-        .form-col2 { grid-column: 1 / -1; }
+        .fsel option { background: var(--dark3); }
+        .ftxt { resize: vertical; min-height: 88px; line-height: 1.55; }
+        .form-err { color: #f87171; font-size: 12.5px; margin-bottom: 12px; display: none; }
+        .form-note { font-size: 11px; color: var(--muted); text-align: center; margin-top: 11px; }
 
-        /* ===== COMO FUNCIONA ===== */
+        /* ============================================================
+           COMO FUNCIONA
+           ============================================================ */
         .steps { display: grid; grid-template-columns: 1fr; gap: 0; }
         .step {
-            display: flex; align-items: flex-start; gap: 20px;
-            padding: 24px 0; border-bottom: 1px solid var(--border);
+            display: flex; align-items: flex-start; gap: 18px;
+            padding: 22px 0; border-bottom: 1px solid var(--brd);
         }
         .step:last-child { border-bottom: none; }
         .step-num {
             width: 42px; height: 42px; flex-shrink: 0;
-            background: var(--gold-dim); border: 1px solid var(--gold-border); border-radius: 10px;
+            background: var(--gold-dim); border: 1px solid var(--gold-brd); border-radius: 10px;
             display: flex; align-items: center; justify-content: center;
             font-family: 'Playfair Display', serif; font-size: 20px; color: var(--gold); font-weight: 700;
         }
         .step-title { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
-        .step-desc { font-size: 13px; color: var(--text2); font-weight: 300; line-height: 1.6; }
+        .step-desc  { font-size: 13px; color: var(--text2); font-weight: 300; line-height: 1.65; }
 
-        /* ===== PROJETOS ===== */
-        .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
-        .proj-card {
-            background: var(--dark2); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
-        }
+        /* ============================================================
+           PROJETOS
+           ============================================================ */
+        .proj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; margin-bottom: 20px; }
+        .proj-card { background: var(--dark2); border: 1px solid var(--brd); border-radius: var(--r); overflow: hidden; transition: border-color .15s; }
+        .proj-card:hover { border-color: var(--gold-brd); }
         .proj-img {
             width: 100%; aspect-ratio: 4/3; background: var(--dark3);
             display: flex; flex-direction: column; align-items: center; justify-content: center;
-            font-size: 30px; gap: 6px; color: var(--gold);
+            font-size: 28px; gap: 6px; color: var(--gold); position: relative;
         }
-        .proj-img-lbl { font-size: 10px; color: var(--muted); letter-spacing: 0.5px; text-transform: uppercase; font-weight: 600; }
+        .proj-badge {
+            position: absolute; top: 8px; right: 8px;
+            background: var(--gold-dim); border: 1px solid var(--gold-brd);
+            color: var(--gold); font-size: 9px; font-weight: 800; letter-spacing: 1px;
+            text-transform: uppercase; padding: 3px 8px; border-radius: 4px;
+        }
+        .proj-lbl { font-size: 10px; color: var(--muted); letter-spacing: .5px; text-transform: uppercase; font-weight: 600; }
         .proj-info { padding: 12px 14px; }
-        .proj-title { font-size: 13px; font-weight: 700; margin-bottom: 3px; }
-        .proj-sub { font-size: 11px; color: var(--text2); }
+        .proj-name { font-size: 13px; font-weight: 700; margin-bottom: 3px; }
+        .proj-loc  { font-size: 11px; color: var(--text2); }
+        .proj-note { font-size: 12px; color: var(--muted); text-align: center; margin-bottom: 20px; line-height: 1.6; }
 
-        /* ===== CONTATO ===== */
-        .contato-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-        .info-block { background: var(--dark2); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
-        .block-label { font-size: 10px; color: var(--gold); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; }
-        .info-row { display: flex; gap: 14px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--border); }
-        .info-row:last-child { border-bottom: none; padding-bottom: 0; }
-        .info-lbl { color: var(--muted); width: 74px; flex-shrink: 0; font-size: 11px; padding-top: 1px; }
-        .info-val { color: var(--text); font-weight: 600; font-size: 13px; }
+        /* ============================================================
+           CONTATO
+           ============================================================ */
+        .cnt-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+        .info-blk { background: var(--dark2); border: 1px solid var(--brd); border-radius: var(--r); padding: 20px; }
+        .blk-lbl { font-size: 9.5px; color: var(--gold); font-weight: 800; letter-spacing: 2.2px; text-transform: uppercase; margin-bottom: 14px; }
+        .irow { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--brd); }
+        .irow:last-child { border-bottom: none; padding-bottom: 0; }
+        .ilbl { color: var(--muted); width: 72px; flex-shrink: 0; font-size: 10.5px; padding-top: 1px; font-weight: 600; letter-spacing: .3px; }
+        .ival { color: var(--text); font-weight: 600; font-size: 13px; line-height: 1.4; }
         .btn-stack { display: flex; flex-direction: column; gap: 10px; }
 
-        /* ===== FLOAT WPP ===== */
+        /* ============================================================
+           FLOAT WPP (sempre visível)
+           ============================================================ */
         .float-wpp {
-            position: fixed; bottom: 20px; right: 20px; z-index: 400;
+            position: fixed; bottom: 22px; right: 22px; z-index: 500;
             background: var(--wpp); color: #fff; border: none; border-radius: 50px;
-            padding: 14px 20px; font-family: 'Raleway', sans-serif; font-size: 13px; font-weight: 700;
+            padding: 13px 20px; font-size: 13px; font-weight: 700;
             cursor: pointer; display: flex; align-items: center; gap: 8px;
-            box-shadow: 0 6px 24px rgba(34,197,94,0.35); text-decoration: none; transition: all 0.2s;
+            box-shadow: 0 6px 28px rgba(34,197,94,.38); text-decoration: none; transition: all .18s;
+            animation: pulse 2.5s infinite;
         }
-        .float-wpp:hover { background: var(--wpp-d); transform: translateY(-2px); }
+        .float-wpp:hover { background: var(--wpp-d); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(34,197,94,.45); }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 6px 28px rgba(34,197,94,.38); }
+            50%       { box-shadow: 0 6px 36px rgba(34,197,94,.6); }
+        }
 
-        /* ===== DIVIDER ===== */
-        hr { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
-
-        /* ===== RESPONSIVE TABLET (≥640px) ===== */
+        /* ============================================================
+           RESPONSIVIDADE — TABLET (≥ 640px)
+           ============================================================ */
         @media (min-width: 640px) {
-            .cards-grid { grid-template-columns: 1fr 1fr; }
-            .prod-grid   { grid-template-columns: 1fr 1fr; }
-            .form-grid   { grid-template-columns: 1fr 1fr; }
-            .steps       { grid-template-columns: 1fr 1fr; }
-            .step        { flex-direction: column; border-bottom: none; border-right: 1px solid var(--border); padding-right: 24px; }
-            .step:nth-child(even) { border-right: none; padding-right: 0; padding-left: 24px; }
-            .contato-grid { grid-template-columns: 1fr 1fr; }
+            .svc-grid  { grid-template-columns: 1fr 1fr; }
+            .prod-grid { grid-template-columns: 1fr 1fr; }
+            .form-grid { grid-template-columns: 1fr 1fr; }
+            .steps     { grid-template-columns: 1fr 1fr; }
+            .step      { flex-direction: column; border-bottom: none; padding: 24px 20px 24px 0; border-right: 1px solid var(--brd); }
+            .step:nth-child(even) { border-right: none; padding-right: 0; padding-left: 20px; }
+            .cnt-grid  { grid-template-columns: 1fr 1fr; }
         }
 
-        /* ===== RESPONSIVE DESKTOP (≥1024px) ===== */
+        /* ============================================================
+           RESPONSIVIDADE — DESKTOP (≥ 1024px)
+           ============================================================ */
         @media (min-width: 1024px) {
-            .header-center { display: flex; }
-            .hamburger { display: none !important; }
+            .dnav  { display: flex; }
+            .hmb   { display: none !important; }
+            .hdr-phone { display: block; }
 
-            .hero-inner { grid-template-columns: 1fr 360px; align-items: center; padding: 72px 20px 68px; }
-            .hero-ctas  { flex-wrap: nowrap; }
+            .hero-in { grid-template-columns: 1fr 340px; align-items: center; padding: 70px 20px 64px; }
+            .hero-ctas { flex-wrap: nowrap; }
 
-            .cards-grid { grid-template-columns: repeat(3, 1fr); }
-            .prod-grid  { grid-template-columns: 1fr 1fr; }
-            .form-grid  { grid-template-columns: 1fr 1fr; }
-            .steps      { grid-template-columns: repeat(4, 1fr); }
-            .step       { border-right: 1px solid var(--border); padding-right: 24px; border-bottom: none; }
-            .step:last-child { border-right: none; padding-right: 0; }
+            .svc-grid  { grid-template-columns: repeat(3, 1fr); }
+            .prod-grid { grid-template-columns: 1fr 1fr; }
+            .form-grid { grid-template-columns: 1fr 1fr; }
+            .steps     { grid-template-columns: repeat(4, 1fr); }
+            .step      { flex-direction: column; border-bottom: none; border-right: 1px solid var(--brd); padding: 24px 24px 24px 0; }
             .step:nth-child(even) { padding-left: 0; }
-            .contato-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
-            .projects-grid { grid-template-columns: repeat(3, 1fr); }
-            .float-wpp { display: none; }
+            .step:last-child { border-right: none; padding-right: 0; }
+            .proj-grid { grid-template-columns: repeat(3, 1fr); }
+            .cnt-grid  { grid-template-columns: 1fr 1fr; gap: 24px; }
         }
 
-        /* ===== MOBILE ONLY ===== */
+        /* ============================================================
+           RESPONSIVIDADE — MOBILE (< 1024px)
+           ============================================================ */
         @media (max-width: 1023px) {
-            .header-center { display: none; }
-            .hamburger { display: flex; }
-            .header-phone { display: none; }
+            .dnav      { display: none; }
+            .hmb       { display: flex; }
+            .hdr-phone { display: none; }
         }
         @media (max-width: 480px) {
-            .hero-ctas { flex-direction: column; }
-            .hero-ctas .btn-wpp { justify-content: center; }
-            .projects-grid { grid-template-columns: 1fr; }
-            .page { padding: 28px 16px 80px; }
-            .hero-inner { padding: 36px 16px 32px; }
+            .hero-ctas     { flex-direction: column; }
+            .hero-ctas .wbtn { justify-content: center; }
+            .proj-grid     { grid-template-columns: 1fr; }
+            .page          { padding: 28px 16px 90px; }
+            .hero-in       { padding: 36px 16px 32px; }
+            .form-wrap     { padding: 18px 14px; }
         }
     </style>
 </head>
 <body>
 
-<!-- ===== HEADER ===== -->
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
 <header>
-    <div class="header-inner">
-        <div class="logo-wrap">
+    <div class="hdr">
+        <!-- Logo -->
+        <div class="logo">
             <div class="logo-box">CM</div>
-            <div class="logo-info">
+            <div class="logo-txt">
                 <h1>Cláudio Melo</h1>
                 <p>Eletricista</p>
             </div>
         </div>
 
-        <nav class="header-center" id="desktopNav">
-            <button class="active" onclick="showTab('servicos',this)">Serviços</button>
-            <button onclick="showTab('produtos',this)">Produtos</button>
-            <button onclick="showTab('orcamento',this)">Orçamento</button>
-            <button onclick="showTab('como',this)">Como Funciona</button>
-            <button onclick="showTab('projetos',this)">Projetos</button>
-            <button onclick="showTab('contato',this)">Contato</button>
+        <!-- Desktop nav -->
+        <nav class="dnav" id="dnav">
+            <button class="on" onclick="go('servicos',this)">Serviços</button>
+            <button onclick="go('produtos',this)">Produtos</button>
+            <button onclick="go('orcamento',this)">Orçamento</button>
+            <button onclick="go('como',this)">Como Funciona</button>
+            <button onclick="go('projetos',this)">Projetos</button>
+            <button onclick="go('contato',this)">Contato</button>
         </nav>
 
-        <div class="header-right">
-            <span class="header-phone">📞 (38) 99876-1475</span>
-            <a class="btn-wpp" href="https://wa.me/5538998761475?text=Olá%20Cláudio!%20Vim%20pelo%20site." target="_blank">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <!-- Right -->
+        <div class="hdr-r">
+            <span class="hdr-phone">📞 (38) 99876-1475</span>
+            <a class="wbtn sm" href="https://wa.me/5538998761475?text=Olá%20Cláudio!%20Vim%20pelo%20site." target="_blank">
+                <svg class="wi" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                 Falar
             </a>
-            <button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+            <button class="hmb" id="hmb" onclick="toggleMenu()" aria-label="Menu">
                 <span></span><span></span><span></span>
             </button>
         </div>
     </div>
 
-    <div class="mobile-nav" id="mobileNav">
-        <button class="active" onclick="showTab('servicos',this,true)">⚡ Serviços</button>
-        <button onclick="showTab('produtos',this,true)">🔌 Produtos</button>
-        <button onclick="showTab('orcamento',this,true)">📋 Orçamento</button>
-        <button onclick="showTab('como',this,true)">❓ Como Funciona</button>
-        <button onclick="showTab('projetos',this,true)">📸 Projetos</button>
-        <button onclick="showTab('contato',this,true)">📞 Contato</button>
+    <!-- Mobile nav -->
+    <div class="mnav" id="mnav">
+        <button class="on" onclick="go('servicos',this,true)">⚡ Serviços</button>
+        <button onclick="go('produtos',this,true)">🔌 Produtos</button>
+        <button onclick="go('orcamento',this,true)">📋 Orçamento</button>
+        <button onclick="go('como',this,true)">❓ Como Funciona</button>
+        <button onclick="go('projetos',this,true)">📸 Projetos</button>
+        <button onclick="go('contato',this,true)">📞 Contato</button>
     </div>
 </header>
 
-<!-- ===== HERO ===== -->
-<div class="hero">
-    <div class="hero-bg-text">CM</div>
-    <div class="hero-inner">
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+    <div class="hero-bg">CM</div>
+    <div class="hero-in">
         <div>
             <p class="hero-eyebrow">⚡ Francisco Sá e região — Norte de Minas</p>
-            <h2 class="hero-title"><em>Eletricista em Francisco Sá</em><br>e região</h2>
-            <p class="hero-desc">Atendimento no mesmo dia · Garantia em todos os serviços · Orçamento sem compromisso</p>
+            <h2 class="hero-title"><em>Eletricista em<br>Francisco Sá</em><br>e região</h2>
+            <div class="hero-sub">
+                <span>⚡ Atendimento no mesmo dia</span>
+                <span>✓ Garantia em todos os serviços</span>
+                <span>💬 Orçamento sem compromisso</span>
+            </div>
             <div class="hero-pills">
-                <span class="pill">⚡ Atendimento rápido</span>
-                <span class="pill">✓ Garantia no serviço</span>
-                <span class="pill">💬 Orçamento grátis</span>
+                <span class="pill">Residencial</span>
+                <span class="pill">Comercial</span>
+                <span class="pill">Industrial</span>
             </div>
             <div class="hero-ctas">
-                <a class="btn-wpp" href="https://wa.me/5538998761475?text=Olá%20Cláudio!%20Preciso%20de%20um%20orçamento." target="_blank">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                    Pedir Orçamento Agora
+                <a class="wbtn" href="https://wa.me/5538998761475?text=Olá%20Cláudio!%20Preciso%20de%20um%20orçamento.%20Pode%20me%20ajudar?" target="_blank">
+                    <svg class="wi" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Solicitar Orçamento
                 </a>
-                <button class="btn-wpp outline" onclick="goOrcamento()">Preencher Formulário</button>
+                <button class="wbtn out" onclick="go('orcamento', document.querySelector('#dnav button:nth-child(3)'))">
+                    Preencher Formulário
+                </button>
             </div>
         </div>
-        <div class="hero-stats-box">
+        <div class="hero-stats">
             <div class="stat"><div class="stat-n">+500</div><div class="stat-l">Projetos</div></div>
             <div class="stat"><div class="stat-n">8+</div><div class="stat-l">Anos</div></div>
             <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Garantia</div></div>
         </div>
     </div>
-</div>
+</section>
 
-<!-- ===== SERVIÇOS ===== -->
-<div id="servicos" class="section active">
+<!-- ============================================================
+     1. SERVIÇOS
+     ============================================================ -->
+<div id="servicos" class="sec on">
     <div class="page">
-        <div class="sec-header">
+        <div class="sec-hdr">
             <h2 class="sec-title">Nossos <em>Serviços</em></h2>
-            <p class="sec-sub">Filtre pelo tipo de serviço e solicite seu orçamento</p>
+            <p class="sec-sub">Selecione a categoria e veja os serviços disponíveis</p>
         </div>
+
         <div class="chips">
-            <button class="chip active" onclick="filterSvc('todos',this)">Todos</button>
-            <button class="chip" onclick="filterSvc('residencial',this)">Residencial</button>
-            <button class="chip" onclick="filterSvc('comercial',this)">Comercial</button>
-            <button class="chip" onclick="filterSvc('manutencao',this)">Manutenção</button>
+            <button class="chip on" onclick="filtrar('todos',this)">Todos</button>
+            <button class="chip" onclick="filtrar('residencial',this)">Residencial</button>
+            <button class="chip" onclick="filtrar('comercial',this)">Comercial</button>
+            <button class="chip" onclick="filtrar('manutencao',this)">Manutenção</button>
         </div>
-        <div class="cards-grid">
+
+        <div class="svc-grid">
+
             <div class="svc-card" data-cat="residencial">
-                <div class="svc-icon">🏠</div>
+                <div class="svc-ico">🏠</div>
                 <div class="svc-body">
                     <p class="svc-name">Instalação Residencial</p>
                     <p class="svc-desc">Casa nova ou reforma sem energia? Faço fiação, tomadas, interruptores e quadro elétrico do zero.</p>
-                    <div class="tags"><span class="tag">NR10</span><span class="tag">Garantia</span></div>
+                    <div class="tags"><span class="tag">NR10</span><span class="tag">Garantia</span><span class="tag">Instalação</span></div>
                 </div>
             </div>
+
             <div class="svc-card" data-cat="residencial">
-                <div class="svc-icon">⚡</div>
+                <div class="svc-ico">⚡</div>
                 <div class="svc-body">
                     <p class="svc-name">Padrão de Entrada (CEMIG)</p>
                     <p class="svc-desc">Sem padrão ou reprovado pela CEMIG? Instalo e regularizo tudo com a concessionária.</p>
                     <div class="tags"><span class="tag">CEMIG</span><span class="tag">Homologação</span></div>
                 </div>
             </div>
+
             <div class="svc-card" data-cat="residencial">
-                <div class="svc-icon">☀️</div>
+                <div class="svc-ico">☀️</div>
                 <div class="svc-body">
                     <p class="svc-name">Energia Solar</p>
                     <p class="svc-desc">Conta de luz alta todo mês? Instalo painéis solares e você começa a economizar de imediato.</p>
                     <div class="tags"><span class="tag">Solar</span><span class="tag">Economia</span></div>
                 </div>
             </div>
+
             <div class="svc-card" data-cat="comercial">
-                <div class="svc-icon">🏭</div>
+                <div class="svc-ico">🏭</div>
                 <div class="svc-body">
                     <p class="svc-name">Instalação Comercial</p>
                     <p class="svc-desc">Abrindo loja ou escritório? Faço o projeto elétrico completo para funcionar no prazo.</p>
-                    <div class="tags"><span class="tag">ART</span><span class="tag">Projeto</span></div>
+                    <div class="tags"><span class="tag">ART</span><span class="tag">Projeto</span><span class="tag">Instalação</span></div>
                 </div>
             </div>
+
             <div class="svc-card" data-cat="comercial">
-                <div class="svc-icon">🏗️</div>
+                <div class="svc-ico">🏗️</div>
                 <div class="svc-body">
                     <p class="svc-name">Instalação Industrial</p>
                     <p class="svc-desc">Máquina parada ou galpão sem energia adequada? Resolvo com projeto técnico e segurança NR10.</p>
                     <div class="tags"><span class="tag">Industrial</span><span class="tag">NR10</span></div>
                 </div>
             </div>
+
             <div class="svc-card" data-cat="manutencao">
-                <div class="svc-icon">🔧</div>
+                <div class="svc-ico">🔧</div>
                 <div class="svc-body">
                     <p class="svc-name">Manutenção Elétrica</p>
-                    <p class="svc-desc">Disjuntor caindo, curto-circuito, tomada queimada. Diagnóstico e reparo no mesmo dia.</p>
+                    <p class="svc-desc">Disjuntor caindo, tomada queimada ou cheiro de elétrico? Atendo no mesmo dia, sem enrolação.</p>
                     <div class="tags"><span class="tag">Urgência</span><span class="tag">Mesmo dia</span></div>
                 </div>
             </div>
+
             <div class="svc-card" data-cat="manutencao">
-                <div class="svc-icon">🛡️</div>
+                <div class="svc-ico">🛡️</div>
                 <div class="svc-body">
                     <p class="svc-name">Laudo Elétrico</p>
-                    <p class="svc-desc">Vistoria e laudo técnico para seguro, venda de imóvel ou exigência de órgão.</p>
+                    <p class="svc-desc">Seguro, venda do imóvel ou prefeitura exigindo laudo? Emito com responsabilidade técnica.</p>
                     <div class="tags"><span class="tag">Laudo</span><span class="tag">Vistoria</span></div>
                 </div>
             </div>
+
             <div class="svc-card" data-cat="residencial comercial">
-                <div class="svc-icon">💡</div>
+                <div class="svc-ico">💡</div>
                 <div class="svc-body">
                     <p class="svc-name">Iluminação LED</p>
-                    <p class="svc-desc">Projeto e instalação de iluminação LED para residências, lojas e áreas externas.</p>
+                    <p class="svc-desc">Loja escura ou ambiente sem iluminação adequada? Projeto e instalação LED com valorização do espaço.</p>
                     <div class="tags"><span class="tag">LED</span><span class="tag">Economia</span></div>
                 </div>
             </div>
+
         </div>
-        <a class="btn-wpp full" href="https://wa.me/5538998761475?text=Olá%20Cláudio!%20Vim%20pelo%20site%20e%20quero%20um%20orçamento%20de%20serviço." target="_blank">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+
+        <a class="wbtn full" href="https://wa.me/5538998761475?text=Olá%20Cláudio!%20Vim%20pelo%20site%20e%20quero%20um%20orçamento%20de%20serviço." target="_blank">
+            <svg class="wi" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Solicitar Orçamento no WhatsApp
         </a>
     </div>
 </div>
 
-<!-- ===== PRODUTOS ===== -->
-<div id="produtos" class="section">
+<!-- ============================================================
+     2. PRODUTOS
+     ============================================================ -->
+<div id="produtos" class="sec">
     <div class="page">
-        <div class="sec-header">
+        <div class="sec-hdr">
             <h2 class="sec-title">Venda de <em>Produtos</em></h2>
-            <p class="sec-sub">Selecione os produtos de interesse — sua lista será enviada pelo WhatsApp</p>
+            <p class="sec-sub">Selecione os produtos de interesse e envie sua lista pelo WhatsApp</p>
         </div>
-        <div class="cart-bar" id="cartBar">
-            <p class="cart-title">🛒 Produtos selecionados</p>
-            <div id="cartItems"></div>
-            <br>
-            <a class="btn-wpp full" href="#" id="btnCart" onclick="enviarCarrinho(event)">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+
+        <div class="prod-hint">
+            <span>👆</span>
+            <span>Clique nos produtos que você tem interesse — depois clique em <strong>Enviar pelo WhatsApp</strong></span>
+        </div>
+
+        <!-- Carrinho -->
+        <div class="cart" id="cart">
+            <p class="cart-ttl">🛒 Minha lista de interesse</p>
+            <div class="cart-list" id="cartList">
+                <p class="cart-empty">Nenhum produto selecionado ainda.</p>
+            </div>
+            <a class="wbtn full" href="#" id="btnCart" onclick="enviarCarrinho(event)">
+                <svg class="wi" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                 Enviar lista pelo WhatsApp
             </a>
         </div>
+
         <div class="prod-grid">
-            <div class="prod-card" onclick="toggleProd(this)" data-prod="Padrão Monofásico">
-                <div class="prod-check">✓</div>
-                <div class="prod-icon">🔌</div>
-                <div class="prod-info"><p class="prod-name">Padrão Monofásico</p><p class="prod-desc">Caixa, medidor, disjuntor e aterramento incluso</p></div>
-                <div class="prod-price">Consultar<small>+ instalação</small></div>
+            <div class="prod-card" onclick="selecionarProd(this)" data-prod="Padrão Monofásico">
+                <div class="prod-chk">✓</div>
+                <div class="prod-ico">🔌</div>
+                <div class="prod-info">
+                    <p class="prod-name">Padrão Monofásico</p>
+                    <p class="prod-desc">Caixa, medidor, disjuntor e aterramento incluso</p>
+                </div>
             </div>
-            <div class="prod-card" onclick="toggleProd(this)" data-prod="Padrão Bifásico">
-                <div class="prod-check">✓</div>
-                <div class="prod-icon">⚡</div>
-                <div class="prod-info"><p class="prod-name">Padrão Bifásico</p><p class="prod-desc">Para residências maiores com documentação CEMIG</p></div>
-                <div class="prod-price">Consultar<small>+ instalação</small></div>
+            <div class="prod-card" onclick="selecionarProd(this)" data-prod="Padrão Bifásico">
+                <div class="prod-chk">✓</div>
+                <div class="prod-ico">⚡</div>
+                <div class="prod-info">
+                    <p class="prod-name">Padrão Bifásico</p>
+                    <p class="prod-desc">Residências maiores com documentação CEMIG inclusa</p>
+                </div>
             </div>
-            <div class="prod-card" onclick="toggleProd(this)" data-prod="Padrão Trifásico">
-                <div class="prod-check">✓</div>
-                <div class="prod-icon">🏗️</div>
-                <div class="prod-info"><p class="prod-name">Padrão Trifásico</p><p class="prod-desc">Industrial e comercial, projeto técnico incluso</p></div>
-                <div class="prod-price">Consultar<small>+ instalação</small></div>
+            <div class="prod-card" onclick="selecionarProd(this)" data-prod="Padrão Trifásico">
+                <div class="prod-chk">✓</div>
+                <div class="prod-ico">🏗️</div>
+                <div class="prod-info">
+                    <p class="prod-name">Padrão Trifásico</p>
+                    <p class="prod-desc">Industrial e comercial de grande porte</p>
+                </div>
             </div>
-            <div class="prod-card" onclick="toggleProd(this)" data-prod="Quadro de Distribuição">
-                <div class="prod-check">✓</div>
-                <div class="prod-icon">🛡️</div>
-                <div class="prod-info"><p class="prod-name">Quadro de Distribuição</p><p class="prod-desc">DIN trilho, barramento e disjuntores de qualidade</p></div>
-                <div class="prod-price">Consultar<small>materiais</small></div>
+            <div class="prod-card" onclick="selecionarProd(this)" data-prod="Quadro de Distribuição">
+                <div class="prod-chk">✓</div>
+                <div class="prod-ico">🛡️</div>
+                <div class="prod-info">
+                    <p class="prod-name">Quadro de Distribuição</p>
+                    <p class="prod-desc">DIN trilho, barramento e disjuntores</p>
+                </div>
             </div>
-            <div class="prod-card" onclick="toggleProd(this)" data-prod="Cabos e Fios Elétricos">
-                <div class="prod-check">✓</div>
-                <div class="prod-icon">🔦</div>
-                <div class="prod-info"><p class="prod-name">Cabos e Fios</p><p class="prod-desc">PP, flexíveis e rígidos em diversas bitolas</p></div>
-                <div class="prod-price">Sob consulta<small>por demanda</small></div>
+            <div class="prod-card" onclick="selecionarProd(this)" data-prod="Cabos e Fios Elétricos">
+                <div class="prod-chk">✓</div>
+                <div class="prod-ico">🔦</div>
+                <div class="prod-info">
+                    <p class="prod-name">Cabos e Fios</p>
+                    <p class="prod-desc">PP, flexíveis e rígidos em diversas bitolas</p>
+                </div>
             </div>
-            <div class="prod-card" onclick="toggleProd(this)" data-prod="Calhas e Eletrodutos">
-                <div class="prod-check">✓</div>
-                <div class="prod-icon">📦</div>
-                <div class="prod-info"><p class="prod-name">Calhas e Eletrodutos</p><p class="prod-desc">Metálicos, rígidos, flexíveis e caixas de passagem</p></div>
-                <div class="prod-price">Sob consulta<small>por demanda</small></div>
+            <div class="prod-card" onclick="selecionarProd(this)" data-prod="Calhas e Eletrodutos">
+                <div class="prod-chk">✓</div>
+                <div class="prod-ico">📦</div>
+                <div class="prod-info">
+                    <p class="prod-name">Calhas e Eletrodutos</p>
+                    <p class="prod-desc">Metálicos, rígidos, flexíveis e caixas de passagem</p>
+                </div>
+            </div>
+            <div class="prod-card" onclick="selecionarProd(this)" data-prod="Disjuntores">
+                <div class="prod-chk">✓</div>
+                <div class="prod-ico">⚙️</div>
+                <div class="prod-info">
+                    <p class="prod-name">Disjuntores</p>
+                    <p class="prod-desc">Monopolar, bipolar e tripolar de diversas amperagens</p>
+                </div>
+            </div>
+            <div class="prod-card" onclick="selecionarProd(this)" data-prod="Tomadas e Interruptores">
+                <div class="prod-chk">✓</div>
+                <div class="prod-ico">🔁</div>
+                <div class="prod-info">
+                    <p class="prod-name">Tomadas e Interruptores</p>
+                    <p class="prod-desc">Linha premium e padrão NBR para uso residencial e comercial</p>
+                </div>
             </div>
         </div>
-        <a class="btn-wpp outline full" style="margin-top:4px;" href="https://wa.me/5538998761475?text=Olá%20Cláudio!%20Tenho%20interesse%20em%20produtos.%20Pode%20me%20passar%20os%20preços?" target="_blank">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Consultar todos os preços
+
+        <a class="wbtn out full" href="https://wa.me/5538998761475?text=Olá%20Cláudio!%20Tenho%20interesse%20em%20produtos%20elétricos.%20Pode%20me%20ajudar?" target="_blank">
+            <svg class="wi" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Consultar outros materiais
         </a>
     </div>
 </div>
 
-<!-- ===== ORÇAMENTO ===== -->
-<div id="orcamento" class="section">
+<!-- ============================================================
+     3. ORÇAMENTO
+     ============================================================ -->
+<div id="orcamento" class="sec">
     <div class="page">
-        <div class="sec-header">
+        <div class="sec-hdr">
             <h2 class="sec-title">Solicitar <em>Orçamento</em></h2>
-            <p class="sec-sub">Preencha os dados — o WhatsApp abrirá com a mensagem pronta para envio</p>
+            <p class="sec-sub">Preencha os dados — o WhatsApp abre com tudo pronto para enviar</p>
         </div>
-        <div class="form-grid">
-            <div class="form-group">
-                <label class="form-label">Nome completo *</label>
-                <input class="form-input" id="fNome" type="text" placeholder="Seu nome completo">
+
+        <div class="form-wrap">
+            <div class="form-grid">
+                <div class="fg">
+                    <label class="flbl">Nome *</label>
+                    <input class="finp" id="fNome" type="text" placeholder="Seu nome completo">
+                </div>
+                <div class="fg">
+                    <label class="flbl">Telefone *</label>
+                    <input class="finp" id="fTel" type="tel" placeholder="(38) 99999-9999">
+                </div>
+                <div class="fg">
+                    <label class="flbl">Cidade</label>
+                    <input class="finp" id="fCid" type="text" placeholder="Ex: Francisco Sá">
+                </div>
+                <div class="fg">
+                    <label class="flbl">Bairro / Endereço</label>
+                    <input class="finp" id="fEnd" type="text" placeholder="Rua, número ou bairro">
+                </div>
+                <div class="fg col2">
+                    <label class="flbl">Tipo de serviço *</label>
+                    <select class="fsel" id="fTipo">
+                        <option value="">Selecione o serviço...</option>
+                        <option>Instalação Residencial</option>
+                        <option>Instalação Comercial</option>
+                        <option>Instalação Industrial</option>
+                        <option>Padrão de Entrada (CEMIG)</option>
+                        <option>Manutenção Elétrica</option>
+                        <option>Energia Solar</option>
+                        <option>Laudo Elétrico</option>
+                        <option>Iluminação LED</option>
+                        <option>Venda de Produtos</option>
+                        <option>Outro</option>
+                    </select>
+                </div>
+                <div class="fg col2">
+                    <label class="flbl">Descreva o problema / necessidade</label>
+                    <textarea class="ftxt" id="fDesc" placeholder="Ex: Disjuntor desarmando toda hora, casa de 3 quartos em alvenaria..."></textarea>
+                </div>
             </div>
-            <div class="form-group">
-                <label class="form-label">Telefone *</label>
-                <input class="form-input" id="fTel" type="tel" placeholder="(38) 99999-9999">
-            </div>
-            <div class="form-group">
-                <label class="form-label">Cidade</label>
-                <input class="form-input" id="fCidade" type="text" placeholder="Ex: Francisco Sá">
-            </div>
-            <div class="form-group">
-                <label class="form-label">Bairro / Endereço</label>
-                <input class="form-input" id="fEnd" type="text" placeholder="Rua, número ou bairro">
-            </div>
-            <div class="form-group form-col2">
-                <label class="form-label">Tipo de serviço *</label>
-                <select class="form-select" id="fTipo">
-                    <option value="">Selecione o serviço...</option>
-                    <option>Instalação Residencial</option>
-                    <option>Instalação Comercial</option>
-                    <option>Instalação Industrial</option>
-                    <option>Padrão de Entrada (CEMIG)</option>
-                    <option>Manutenção Elétrica</option>
-                    <option>Energia Solar</option>
-                    <option>Laudo Elétrico</option>
-                    <option>Iluminação LED</option>
-                    <option>Venda de Produtos</option>
-                    <option>Outro</option>
-                </select>
-            </div>
-            <div class="form-group form-col2">
-                <label class="form-label">Descreva o que precisa</label>
-                <textarea class="form-textarea" id="fDesc" placeholder="Ex: Preciso instalar tomadas e interruptores em 3 cômodos, casa nova em alvenaria..."></textarea>
-            </div>
+
+            <p class="form-err" id="formErr">⚠ Preencha nome, telefone e tipo de serviço.</p>
+
+            <button class="wbtn full" onclick="enviarOrcamento()">
+                <svg class="wi" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Enviar Orçamento pelo WhatsApp
+            </button>
+
+            <p class="form-note">🔒 Nenhum dado é salvo. O WhatsApp abre com a mensagem pronta — você revisa antes de enviar.</p>
         </div>
-        <p id="formErro" style="color:#f87171;font-size:13px;margin-bottom:12px;display:none;">⚠ Preencha nome, telefone e tipo de serviço.</p>
-        <button class="btn-wpp full" onclick="enviarOrcamento()">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Enviar Orçamento pelo WhatsApp
-        </button>
-        <p style="font-size:11px;color:var(--muted);text-align:center;margin-top:12px;">Nenhum dado é salvo — o WhatsApp abre com a mensagem pronta. ✓</p>
     </div>
 </div>
 
-<!-- ===== COMO FUNCIONA ===== -->
-<div id="como" class="section">
+<!-- ============================================================
+     4. COMO FUNCIONA
+     ============================================================ -->
+<div id="como" class="sec">
     <div class="page">
-        <div class="sec-header">
+        <div class="sec-hdr">
             <h2 class="sec-title">Como <em>Funciona</em></h2>
-            <p class="sec-sub">Do primeiro contato ao serviço entregue em 4 passos</p>
+            <p class="sec-sub">Simples, rápido e sem burocracia — do contato ao serviço em 4 passos</p>
         </div>
+
         <div class="steps">
             <div class="step">
                 <div class="step-num">1</div>
                 <div>
-                    <p class="step-title">Você entra em contato</p>
-                    <p class="step-desc">Mande mensagem pelo WhatsApp ou preencha o formulário de orçamento no site.</p>
+                    <p class="step-title">Chama no WhatsApp</p>
+                    <p class="step-desc">Manda uma mensagem agora. Sem formulário complicado, sem espera. Resposta rápida, sem enrolação.</p>
                 </div>
             </div>
             <div class="step">
                 <div class="step-num">2</div>
                 <div>
-                    <p class="step-title">Explica o que precisa</p>
-                    <p class="step-desc">Descreva o problema. Se necessário, fazemos uma visita técnica gratuita.</p>
+                    <p class="step-title">Explica o problema</p>
+                    <p class="step-desc">Descreve o que tá acontecendo — com foto ou sem. Se precisar, a visita técnica é gratuita.</p>
                 </div>
             </div>
             <div class="step">
                 <div class="step-num">3</div>
                 <div>
                     <p class="step-title">Recebe o orçamento</p>
-                    <p class="step-desc">Orçamento claro e sem surpresas. Aprovando, combinamos data e horário.</p>
+                    <p class="step-desc">Preço claro, sem surpresa no final. Você decide sem pressão. Sem compromisso nenhum.</p>
                 </div>
             </div>
             <div class="step">
                 <div class="step-num">4</div>
                 <div>
                     <p class="step-title">Serviço agendado ✓</p>
-                    <p class="step-desc">Executamos com segurança, no prazo combinado, e entregamos com garantia.</p>
+                    <p class="step-desc">Combinamos o melhor horário, executamos com segurança e entregamos com garantia por escrito.</p>
                 </div>
             </div>
         </div>
-        <hr>
-        <a class="btn-wpp full" href="https://wa.me/5538998761475?text=Olá%20Cláudio!%20Quero%20começar!%20Como%20funciona?" target="_blank">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+
+        <hr class="div">
+
+        <a class="wbtn full" href="https://wa.me/5538998761475?text=Olá%20Cláudio!%20Vim%20pelo%20site%20e%20quero%20começar.%20Como%20funciona?" target="_blank">
+            <svg class="wi" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Falar com o Cláudio agora
         </a>
     </div>
 </div>
 
-<!-- ===== PROJETOS ===== -->
-<div id="projetos" class="section">
+<!-- ============================================================
+     5. PROJETOS
+     ============================================================ -->
+<div id="projetos" class="sec">
     <div class="page">
-        <div class="sec-header">
+        <div class="sec-hdr">
             <h2 class="sec-title">Projetos <em>Realizados</em></h2>
-            <p class="sec-sub">Veja alguns dos serviços executados pela equipe — substitua pelas suas fotos reais</p>
+            <p class="sec-sub">Serviços executados com qualidade — substitua pelas suas fotos reais</p>
         </div>
-        <div class="projects-grid">
+
+        <div class="proj-grid">
             <div class="proj-card">
-                <div class="proj-img">⚡<span class="proj-img-lbl">Adicionar foto</span></div>
-                <div class="proj-info"><p class="proj-title">Padrão Bifásico</p><p class="proj-sub">Instalação residencial — Francisco Sá</p></div>
+                <div class="proj-img">⚡<span class="proj-badge">Residencial</span><span class="proj-lbl">Adicionar foto</span></div>
+                <div class="proj-info"><p class="proj-name">Padrão Bifásico</p><p class="proj-loc">Francisco Sá — MG</p></div>
             </div>
             <div class="proj-card">
-                <div class="proj-img">🔌<span class="proj-img-lbl">Adicionar foto</span></div>
-                <div class="proj-info"><p class="proj-title">Quadro Elétrico</p><p class="proj-sub">Reforma completa — Montes Claros</p></div>
+                <div class="proj-img">🔌<span class="proj-badge">Residencial</span><span class="proj-lbl">Adicionar foto</span></div>
+                <div class="proj-info"><p class="proj-name">Quadro Elétrico</p><p class="proj-loc">Reforma completa — Montes Claros</p></div>
             </div>
             <div class="proj-card">
-                <div class="proj-img">🏗️<span class="proj-img-lbl">Adicionar foto</span></div>
-                <div class="proj-info"><p class="proj-title">Instalação Industrial</p><p class="proj-sub">Painel de comando — Bocaiúva</p></div>
+                <div class="proj-img">🏗️<span class="proj-badge">Industrial</span><span class="proj-lbl">Adicionar foto</span></div>
+                <div class="proj-info"><p class="proj-name">Painel de Comando</p><p class="proj-loc">Instalação industrial — Bocaiúva</p></div>
             </div>
             <div class="proj-card">
-                <div class="proj-img">☀️<span class="proj-img-lbl">Adicionar foto</span></div>
-                <div class="proj-info"><p class="proj-title">Energia Solar</p><p class="proj-sub">Sistema fotovoltaico — Francisco Sá</p></div>
+                <div class="proj-img">☀️<span class="proj-badge">Solar</span><span class="proj-lbl">Adicionar foto</span></div>
+                <div class="proj-info"><p class="proj-name">Energia Solar</p><p class="proj-loc">Sistema fotovoltaico — Francisco Sá</p></div>
             </div>
             <div class="proj-card">
-                <div class="proj-img">💡<span class="proj-img-lbl">Adicionar foto</span></div>
-                <div class="proj-info"><p class="proj-title">Iluminação LED</p><p class="proj-sub">Loja comercial — Pirapora</p></div>
+                <div class="proj-img">💡<span class="proj-badge">Comercial</span><span class="proj-lbl">Adicionar foto</span></div>
+                <div class="proj-info"><p class="proj-name">Iluminação LED</p><p class="proj-loc">Loja comercial — Pirapora</p></div>
             </div>
             <div class="proj-card">
-                <div class="proj-img">🏠<span class="proj-img-lbl">Adicionar foto</span></div>
-                <div class="proj-info"><p class="proj-title">Fiação Residencial</p><p class="proj-sub">Casa nova — Francisco Sá</p></div>
+                <div class="proj-img">🏠<span class="proj-badge">Residencial</span><span class="proj-lbl">Adicionar foto</span></div>
+                <div class="proj-info"><p class="proj-name">Fiação Residencial</p><p class="proj-loc">Casa nova — Francisco Sá</p></div>
             </div>
         </div>
-        <p style="font-size:12px;color:var(--muted);text-align:center;margin-bottom:20px;">
-            💡 Substitua os cards acima pelas fotos reais dos seus serviços para gerar mais confiança.
+
+        <p class="proj-note">
+            💡 <strong>Dica:</strong> adicione fotos reais dos seus serviços para aumentar a confiança dos clientes.<br>
+            Imagem real converte muito mais do que qualquer texto.
         </p>
-        <a class="btn-wpp full" href="https://wa.me/5538998761475?text=Olá%20Cláudio!%20Vi%20seus%20projetos%20e%20quero%20um%20serviço%20igual." target="_blank">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+
+        <a class="wbtn full" href="https://wa.me/5538998761475?text=Olá%20Cláudio!%20Vi%20os%20seus%20projetos%20e%20quero%20um%20serviço%20igual." target="_blank">
+            <svg class="wi" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Quero um serviço assim — falar no WhatsApp
         </a>
     </div>
 </div>
 
-<!-- ===== CONTATO ===== -->
-<div id="contato" class="section">
+<!-- ============================================================
+     6. CONTATO
+     ============================================================ -->
+<div id="contato" class="sec">
     <div class="page">
-        <div class="sec-header">
+        <div class="sec-hdr">
             <h2 class="sec-title">Fale <em>Conosco</em></h2>
-            <p class="sec-sub">Francisco Sá e toda a região do Norte de Minas Gerais</p>
+            <p class="sec-sub">Francisco Sá e toda a região do Norte de Minas</p>
         </div>
-        <div class="contato-grid">
-            <div class="info-block">
-                <p class="block-label">Informações</p>
-                <div class="info-row"><span class="info-lbl">WhatsApp</span><span class="info-val">(38) 99876-1475</span></div>
-                <div class="info-row"><span class="info-lbl">Instagram</span><span class="info-val">@claudiomarcosdem</span></div>
-                <div class="info-row"><span class="info-lbl">Cidade</span><span class="info-val">Francisco Sá — MG</span></div>
-                <div class="info-row"><span class="info-lbl">Horário</span><span class="info-val">Seg–Sáb · 7h às 18h</span></div>
-                <div class="info-row"><span class="info-lbl">Região</span><span class="info-val">Francisco Sá, Montes Claros e Norte de Minas</span></div>
+
+        <div class="cnt-grid">
+            <div class="info-blk">
+                <p class="blk-lbl">Informações</p>
+                <div class="irow"><span class="ilbl">WhatsApp</span><span class="ival">(38) 99876-1475</span></div>
+                <div class="irow"><span class="ilbl">Instagram</span><span class="ival">@claudiomarcosdem</span></div>
+                <div class="irow"><span class="ilbl">Cidade</span><span class="ival">Francisco Sá — MG</span></div>
+                <div class="irow"><span class="ilbl">Horário</span><span class="ival">Seg–Sáb · 7h às 18h</span></div>
+                <div class="irow"><span class="ilbl">Região</span><span class="ival">Francisco Sá, Montes Claros e Norte de Minas</span></div>
             </div>
+
             <div class="btn-stack">
-                <a class="btn-wpp full" href="https://wa.me/5538998761475?text=Olá%20Cláudio!%20Vi%20o%20site%20e%20quero%20agendar%20uma%20visita%20técnica." target="_blank">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                    Agendar Visita Técnica
+                <a class="wbtn full" href="https://wa.me/5538998761475?text=Olá%20Cláudio!%20Vi%20o%20site%20e%20quero%20agendar%20uma%20visita%20técnica%20gratuita." target="_blank">
+                    <svg class="wi" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Agendar Visita Técnica Gratuita
                 </a>
-                <a class="btn-wpp outline full" href="https://wa.me/5538998761475?text=Olá%20Cláudio!%20Vim%20pelo%20site%20e%20preciso%20de%20ajuda." target="_blank">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                <a class="wbtn out full" href="https://wa.me/5538998761475?text=Olá%20Cláudio!%20Vim%20pelo%20site%20e%20preciso%20de%20ajuda." target="_blank">
+                    <svg class="wi" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                     Falar no WhatsApp
                 </a>
-                <a class="btn-wpp full gold-btn" href="https://instagram.com/claudiomarcosdem" target="_blank">
+                <a class="wbtn full" style="background:var(--gold);border-radius:var(--r);" href="https://instagram.com/claudiomarcosdem" target="_blank">
                     📷 &nbsp;Ver no Instagram
                 </a>
             </div>
@@ -749,96 +880,112 @@
     </div>
 </div>
 
-<!-- Float WPP (mobile) -->
-<a class="float-wpp" href="https://wa.me/5538998761475?text=Olá%20Cláudio!" target="_blank">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+<!-- ============================================================
+     BOTÃO FLUTUANTE WHATSAPP
+     ============================================================ -->
+<a class="float-wpp" href="https://wa.me/5538998761475?text=Olá%20Cláudio!%20Vim%20pelo%20site." target="_blank">
+    <svg class="wi" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     WhatsApp
 </a>
 
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
 <script>
-    /* NAV */
-    function showTab(tab, btn, isMobile) {
-        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-        document.getElementById(tab).classList.add('active');
-        document.querySelectorAll('.header-center button, .mobile-nav button').forEach(b => b.classList.remove('active'));
-        if (btn) btn.classList.add('active');
-        // sync the other nav
-        const allDesktop = document.querySelectorAll('.header-center button');
-        const allMobile  = document.querySelectorAll('.mobile-nav button');
-        const idx = isMobile
-            ? Array.from(allMobile).indexOf(btn)
-            : Array.from(allDesktop).indexOf(btn);
-        if (!isMobile && allMobile[idx]) allMobile[idx].classList.add('active');
-        if (isMobile  && allDesktop[idx]) allDesktop[idx].classList.add('active');
-        if (isMobile) closeMobileNav();
+    // ── NÚMERO ÚNICO ──────────────────────────────────────────────
+    const WPP = '5538998761475';
+    const wLink = (msg) => `https://wa.me/${WPP}?text=${encodeURIComponent(msg)}`;
+
+    // ── NAVEGAÇÃO ─────────────────────────────────────────────────
+    function go(id, btn, isMobile) {
+        document.querySelectorAll('.sec').forEach(s => s.classList.remove('on'));
+        document.getElementById(id).classList.add('on');
+
+        const allD = document.querySelectorAll('#dnav button');
+        const allM = document.querySelectorAll('#mnav button');
+        allD.forEach(b => b.classList.remove('on'));
+        allM.forEach(b => b.classList.remove('on'));
+
+        if (btn) {
+            btn.classList.add('on');
+            const idx = Array.from(isMobile ? allM : allD).indexOf(btn);
+            if (isMobile  && allD[idx]) allD[idx].classList.add('on');
+            if (!isMobile && allM[idx]) allM[idx].classList.add('on');
+        }
+        if (isMobile) fecharMenu();
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function goOrcamento() {
-        const btn = document.querySelector('.header-center button:nth-child(3)');
-        showTab('orcamento', btn, false);
-    }
+    function toggleMenu() { document.getElementById('mnav').classList.toggle('open'); }
+    function fecharMenu()  { document.getElementById('mnav').classList.remove('open'); }
 
-    function toggleMobileNav() {
-        document.getElementById('mobileNav').classList.toggle('open');
-    }
-    function closeMobileNav() {
-        document.getElementById('mobileNav').classList.remove('open');
-    }
-
-    /* SERVIÇOS FILTER */
-    function filterSvc(cat, btn) {
-        document.querySelectorAll('.chips .chip').forEach(c => c.classList.remove('active'));
-        btn.classList.add('active');
+    // ── FILTRO SERVIÇOS ───────────────────────────────────────────
+    function filtrar(cat, btn) {
+        document.querySelectorAll('.chips .chip').forEach(c => c.classList.remove('on'));
+        btn.classList.add('on');
         document.querySelectorAll('.svc-card').forEach(card => {
-            if (cat === 'todos') { card.classList.remove('hidden'); return; }
-            card.classList.toggle('hidden', !card.dataset.cat.includes(cat));
+            if (cat === 'todos') { card.classList.remove('hide'); return; }
+            card.classList.toggle('hide', !card.dataset.cat.includes(cat));
         });
     }
 
-    /* PRODUTOS CART */
-    const cartSet = new Set();
-    function toggleProd(card) {
-        const prod = card.dataset.prod;
-        card.classList.toggle('selected');
-        if (card.classList.contains('selected')) cartSet.add(prod);
-        else cartSet.delete(prod);
-        updateCart();
-    }
-    function updateCart() {
-        const bar = document.getElementById('cartBar');
-        const items = document.getElementById('cartItems');
-        if (cartSet.size === 0) { bar.classList.remove('visible'); return; }
-        bar.classList.add('visible');
-        items.innerHTML = Array.from(cartSet).map(p => `<div class="cart-item">${p}</div>`).join('');
-    }
-    function enviarCarrinho(e) {
-        e.preventDefault();
-        if (!cartSet.size) return;
-        const lista = Array.from(cartSet).join(', ');
-        const msg = encodeURIComponent('Olá Cláudio! Vim pelo site e tenho interesse nos seguintes produtos: ' + lista + '. Poderia me passar os preços?');
-        window.open('https://wa.me/5538998761475?text=' + msg, '_blank');
+    // ── PRODUTOS / CARRINHO ───────────────────────────────────────
+    const lista = new Set();
+
+    function selecionarProd(card) {
+        const nome = card.dataset.prod;
+        card.classList.toggle('sel');
+        if (card.classList.contains('sel')) lista.add(nome);
+        else lista.delete(nome);
+        atualizarCart();
     }
 
-    /* FORMULÁRIO ORÇAMENTO */
+    function atualizarCart() {
+        const cart     = document.getElementById('cart');
+        const cartList = document.getElementById('cartList');
+
+        if (lista.size === 0) {
+            cart.classList.remove('show');
+            cartList.innerHTML = '<p class="cart-empty">Nenhum produto selecionado ainda.</p>';
+            return;
+        }
+        cart.classList.add('show');
+        cartList.innerHTML = Array.from(lista)
+            .map(p => `<div class="cart-item">${p}</div>`)
+            .join('');
+    }
+
+    function enviarCarrinho(e) {
+        e.preventDefault();
+        if (!lista.size) return;
+        const itens = Array.from(lista).map(p => `• ${p}`).join('\n');
+        const msg = `Olá Cláudio! Vim pelo site e tenho interesse nos seguintes produtos:\n\n${itens}\n\nPode me passar os preços?`;
+        window.open(wLink(msg), '_blank');
+    }
+
+    // ── FORMULÁRIO DE ORÇAMENTO ───────────────────────────────────
     function enviarOrcamento() {
-        const nome   = document.getElementById('fNome').value.trim();
-        const tel    = document.getElementById('fTel').value.trim();
-        const tipo   = document.getElementById('fTipo').value.trim();
-        const cidade = document.getElementById('fCidade').value.trim();
-        const end    = document.getElementById('fEnd').value.trim();
-        const desc   = document.getElementById('fDesc').value.trim();
-        const erro   = document.getElementById('formErro');
-        if (!nome || !tel || !tipo) { erro.style.display = 'block'; return; }
-        erro.style.display = 'none';
-        let msg = 'Olá Cláudio! Vim pelo site e gostaria de um orçamento.\n\n';
-        msg += '👤 *Nome:* ' + nome + '\n';
-        msg += '📞 *Telefone:* ' + tel + '\n';
-        if (cidade) msg += '📍 *Cidade:* ' + cidade + '\n';
-        if (end)    msg += '🏠 *Endereço:* ' + end + '\n';
-        msg += '🔧 *Serviço:* ' + tipo + '\n';
-        if (desc)   msg += '📝 *Detalhes:* ' + desc + '\n';
-        window.open('https://wa.me/5538998761475?text=' + encodeURIComponent(msg), '_blank');
+        const nome  = document.getElementById('fNome').value.trim();
+        const tel   = document.getElementById('fTel').value.trim();
+        const tipo  = document.getElementById('fTipo').value.trim();
+        const cid   = document.getElementById('fCid').value.trim();
+        const end   = document.getElementById('fEnd').value.trim();
+        const desc  = document.getElementById('fDesc').value.trim();
+        const err   = document.getElementById('formErr');
+
+        if (!nome || !tel || !tipo) { err.style.display = 'block'; return; }
+        err.style.display = 'none';
+
+        const msg =
+            `Olá Cláudio! Vim pelo site e gostaria de um orçamento.\n\n` +
+            `👤 Nome: ${nome}\n` +
+            `📞 Telefone: ${tel}\n` +
+            (cid  ? `📍 Cidade: ${cid}\n`     : '') +
+            (end  ? `🏠 Endereço: ${end}\n`   : '') +
+            `🔧 Serviço: ${tipo}\n` +
+            (desc ? `📝 Problema: ${desc}\n`  : '');
+
+        window.open(wLink(msg), '_blank');
     }
 </script>
 </body>
